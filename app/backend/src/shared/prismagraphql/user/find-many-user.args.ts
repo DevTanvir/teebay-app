@@ -1,16 +1,15 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
-import { Int } from '@nestjs/graphql';
-import { Prisma } from '@prisma/client';
-import { Type } from 'class-transformer';
-
-import { UserOrderByWithRelationInput } from './user-order-by-with-relation.input';
-import { UserScalarFieldEnum } from './user-scalar-field.enum';
 import { UserWhereInput } from './user-where.input';
+import { Type } from 'class-transformer';
+import { UserOrderByWithRelationInput } from './user-order-by-with-relation.input';
+import { Prisma } from '@prisma/client';
 import { UserWhereUniqueInput } from './user-where-unique.input';
+import { Int } from '@nestjs/graphql';
+import { UserScalarFieldEnum } from './user-scalar-field.enum';
 
 @ArgsType()
-export class FindFirstUserOrThrowArgs {
+export class FindManyUserArgs {
 
     @Field(() => UserWhereInput, {nullable:true})
     @Type(() => UserWhereInput)

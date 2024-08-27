@@ -4,7 +4,7 @@ import { InputType } from '@nestjs/graphql';
 @InputType()
 export class UserCreateInput {
 
-    @Field(() => String, {nullable:false})
+    @Field(() => String, {nullable:true})
     id?: string;
 
     @Field(() => String, {nullable:false})
