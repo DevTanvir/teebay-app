@@ -13,6 +13,12 @@ export class Category {
     @Field(() => String, {nullable:false})
     name!: string;
 
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+
     @Field(() => [ProductCategory], {nullable:true})
     products?: Array<ProductCategory>;
 

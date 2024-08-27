@@ -7,8 +7,14 @@ export enum ProductScalarFieldEnum {
     price = "price",
     rentPrice = "rentPrice",
     rentDuration = "rentDuration",
+    rentFromDate = "rentFromDate",
+    rentToDate = "rentToDate",
     createdAt = "createdAt",
-    updatedAt = "updatedAt"
+    updatedAt = "updatedAt",
+    ownerId = "ownerId",
+    sellerId = "sellerId",
+    borrowerId = "borrowerId",
+    lenderId = "lenderId"
 }
 
 

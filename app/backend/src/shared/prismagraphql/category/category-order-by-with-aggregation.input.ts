@@ -14,6 +14,12 @@ export class CategoryOrderByWithAggregationInput {
     @Field(() => SortOrder, {nullable:true})
     name?: keyof typeof SortOrder;
 
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
+
     @Field(() => CategoryCountOrderByAggregateInput, {nullable:true})
     _count?: CategoryCountOrderByAggregateInput;
 

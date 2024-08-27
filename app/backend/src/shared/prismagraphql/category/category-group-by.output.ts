@@ -13,6 +13,12 @@ export class CategoryGroupBy {
     @Field(() => String, {nullable:false})
     name!: string;
 
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
+
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
+
     @Field(() => CategoryCountAggregate, {nullable:true})
     _count?: CategoryCountAggregate;
 

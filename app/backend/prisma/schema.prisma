@@ -39,29 +39,46 @@ enum RentDuration {
 }
 
 model User {
-  id            String         @id @default(uuid()) @db.Uuid
-  name          String
-  email         String         @unique
-  password      String
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @default(now())
+  id                    String          @id @default(uuid()) @db.Uuid
+  name                  String
+  email                 String          @unique
+  password              String
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @default(now())
+  purchasedProducts     Product[]       @relation("PurchasedProducts")
+  soldProducts          Product[]       @relation("SoldProducts")
+  borrowedProducts      Product[]       @relation("BorrowedProducts")
+  lentProducts          Product[]       @relation("LentProducts")
 }
 
 model Product {
-  id            String             @id @default(uuid())
+  id            String              @id @default(uuid())
   title         String
   description   String?
   price         Int
   rentPrice     Int?
   rentDuration  RentDuration
+  rentFromDate  DateTime?
+  rentToDate    DateTime?
   categories    ProductCategory[]
-  createdAt     DateTime           @default(now())
-  updatedAt     DateTime           @updatedAt
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @default(now())
+  ownerId       String              @default(uuid())   @db.Uuid
+  owner         User                @relation("PurchasedProducts", fields: [ownerId], references: [id])
+
+  sellerId      String?             @default(uuid())   @db.Uuid
+  seller        User?               @relation("SoldProducts", fields: [sellerId], references: [id])
+  borrowerId    String?             @default(uuid())   @db.Uuid
+  borrower      User?               @relation("BorrowedProducts", fields: [borrowerId], references: [id])
+  lenderId      String?             @default(uuid())   @db.Uuid
+  lender        User?               @relation("LentProducts", fields: [lenderId], references: [id])
 }
 
 model Category {
   id            String             @id @default(uuid())
   name          String             @unique
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @default(now())
   products      ProductCategory[]
 }
 

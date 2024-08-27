@@ -25,8 +25,26 @@ export class ProductCreateManyInput {
     rentDuration!: keyof typeof RentDuration;
 
     @Field(() => Date, {nullable:true})
+    rentFromDate?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    rentToDate?: Date | string;
+
+    @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
+
+    @Field(() => String, {nullable:true})
+    ownerId?: string;
+
+    @Field(() => String, {nullable:true})
+    sellerId?: string;
+
+    @Field(() => String, {nullable:true})
+    borrowerId?: string;
+
+    @Field(() => String, {nullable:true})
+    lenderId?: string;
 }

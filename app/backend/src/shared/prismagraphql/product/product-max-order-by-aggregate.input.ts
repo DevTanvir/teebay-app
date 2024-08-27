@@ -24,8 +24,26 @@ export class ProductMaxOrderByAggregateInput {
     rentDuration?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    rentFromDate?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    rentToDate?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    ownerId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    sellerId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    borrowerId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    lenderId?: keyof typeof SortOrder;
 }

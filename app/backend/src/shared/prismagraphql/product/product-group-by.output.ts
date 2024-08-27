@@ -29,11 +29,29 @@ export class ProductGroupBy {
     @Field(() => RentDuration, {nullable:false})
     rentDuration!: keyof typeof RentDuration;
 
+    @Field(() => Date, {nullable:true})
+    rentFromDate?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    rentToDate?: Date | string;
+
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;
 
     @Field(() => Date, {nullable:false})
     updatedAt!: Date | string;
+
+    @Field(() => String, {nullable:false})
+    ownerId!: string;
+
+    @Field(() => String, {nullable:true})
+    sellerId?: string;
+
+    @Field(() => String, {nullable:true})
+    borrowerId?: string;
+
+    @Field(() => String, {nullable:true})
+    lenderId?: string;
 
     @Field(() => ProductCountAggregate, {nullable:true})
     _count?: ProductCountAggregate;

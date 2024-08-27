@@ -9,4 +9,10 @@ export class CategoryMaxAggregate {
 
     @Field(() => String, {nullable:true})
     name?: string;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 }

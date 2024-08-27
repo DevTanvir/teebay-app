@@ -1,6 +1,8 @@
 export { AffectedRows } from './affected-rows.output';
 export { DateTimeFieldUpdateOperationsInput } from './date-time-field-update-operations.input';
 export { DateTimeFilter } from './date-time-filter.input';
+export { DateTimeNullableFilter } from './date-time-nullable-filter.input';
+export { DateTimeNullableWithAggregatesFilter } from './date-time-nullable-with-aggregates-filter.input';
 export { DateTimeWithAggregatesFilter } from './date-time-with-aggregates-filter.input';
 export { EnumRentDurationFieldUpdateOperationsInput } from './enum-rent-duration-field-update-operations.input';
 export { EnumRentDurationFilter } from './enum-rent-duration-filter.input';
@@ -11,6 +13,8 @@ export { IntNullableFilter } from './int-nullable-filter.input';
 export { IntNullableWithAggregatesFilter } from './int-nullable-with-aggregates-filter.input';
 export { IntWithAggregatesFilter } from './int-with-aggregates-filter.input';
 export { NestedDateTimeFilter } from './nested-date-time-filter.input';
+export { NestedDateTimeNullableFilter } from './nested-date-time-nullable-filter.input';
+export { NestedDateTimeNullableWithAggregatesFilter } from './nested-date-time-nullable-with-aggregates-filter.input';
 export { NestedDateTimeWithAggregatesFilter } from './nested-date-time-with-aggregates-filter.input';
 export { NestedEnumRentDurationFilter } from './nested-enum-rent-duration-filter.input';
 export { NestedEnumRentDurationWithAggregatesFilter } from './nested-enum-rent-duration-with-aggregates-filter.input';
@@ -25,7 +29,10 @@ export { NestedStringNullableFilter } from './nested-string-nullable-filter.inpu
 export { NestedStringNullableWithAggregatesFilter } from './nested-string-nullable-with-aggregates-filter.input';
 export { NestedStringWithAggregatesFilter } from './nested-string-with-aggregates-filter.input';
 export { NestedUuidFilter } from './nested-uuid-filter.input';
+export { NestedUuidNullableFilter } from './nested-uuid-nullable-filter.input';
+export { NestedUuidNullableWithAggregatesFilter } from './nested-uuid-nullable-with-aggregates-filter.input';
 export { NestedUuidWithAggregatesFilter } from './nested-uuid-with-aggregates-filter.input';
+export { NullableDateTimeFieldUpdateOperationsInput } from './nullable-date-time-field-update-operations.input';
 export { NullableIntFieldUpdateOperationsInput } from './nullable-int-field-update-operations.input';
 export { NullableStringFieldUpdateOperationsInput } from './nullable-string-field-update-operations.input';
 export { NullsOrder } from './nulls-order.enum';
@@ -40,4 +47,6 @@ export { StringNullableWithAggregatesFilter } from './string-nullable-with-aggre
 export { StringWithAggregatesFilter } from './string-with-aggregates-filter.input';
 export { TransactionIsolationLevel } from './transaction-isolation-level.enum';
 export { UuidFilter } from './uuid-filter.input';
+export { UuidNullableFilter } from './uuid-nullable-filter.input';
+export { UuidNullableWithAggregatesFilter } from './uuid-nullable-with-aggregates-filter.input';
 export { UuidWithAggregatesFilter } from './uuid-with-aggregates-filter.input';

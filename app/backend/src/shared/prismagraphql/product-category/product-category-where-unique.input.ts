@@ -1,10 +1,11 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { ProductCategoryProductIdCategoryIdCompoundUniqueInput } from './product-category-product-id-category-id-compound-unique.input';
-import { ProductCategoryWhereInput } from './product-category-where.input';
+
+import { CategoryRelationFilter } from '../category/category-relation-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { ProductRelationFilter } from '../product/product-relation-filter.input';
-import { CategoryRelationFilter } from '../category/category-relation-filter.input';
+import { ProductCategoryProductIdCategoryIdCompoundUniqueInput } from './product-category-product-id-category-id-compound-unique.input';
+import { ProductCategoryWhereInput } from './product-category-where.input';
 
 @InputType()
 export class ProductCategoryWhereUniqueInput {

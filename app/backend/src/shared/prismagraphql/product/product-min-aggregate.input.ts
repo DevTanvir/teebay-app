@@ -23,8 +23,26 @@ export class ProductMinAggregateInput {
     rentDuration?: true;
 
     @Field(() => Boolean, {nullable:true})
+    rentFromDate?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    rentToDate?: true;
+
+    @Field(() => Boolean, {nullable:true})
     createdAt?: true;
 
     @Field(() => Boolean, {nullable:true})
     updatedAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    ownerId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    sellerId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    borrowerId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    lenderId?: true;
 }

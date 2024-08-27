@@ -29,11 +29,29 @@ export class ProductOrderByWithAggregationInput {
     @Field(() => SortOrder, {nullable:true})
     rentDuration?: keyof typeof SortOrder;
 
+    @Field(() => SortOrderInput, {nullable:true})
+    rentFromDate?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    rentToDate?: SortOrderInput;
+
     @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    ownerId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    sellerId?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    borrowerId?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    lenderId?: SortOrderInput;
 
     @Field(() => ProductCountOrderByAggregateInput, {nullable:true})
     _count?: ProductCountOrderByAggregateInput;
