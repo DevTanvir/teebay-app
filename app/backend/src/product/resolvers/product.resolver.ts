@@ -2,6 +2,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { CreateProductInput } from '../dtos/create-product-input.dto';
 import { GetProductsInput } from '../dtos/get-products-input.dto';
+import { RentProductInput } from '../dtos/rent-product-input.dto';
 import { UpdateProductInput } from '../dtos/update-product-input.dto';
 import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
@@ -44,4 +45,21 @@ export class ProductResolver {
     return product
   }
 
+  @Mutation(() => Product)
+  purchaseProduct(@Args('id') id: string, @Args('buyerId') buyerId: string) {
+    const product = this.productService.purchaseProduct(id, buyerId);
+    return product
+  }
+
+  @Mutation(() => Product)
+  rentProduct(@Args('id') id: string, @Args('input') input: RentProductInput) {
+    const product = this.productService.rentProduct(id, input);
+    return product
+  }
+
+  @Query(() => [Product])
+  getMyProductCollection(@Args('ownerId') ownerId: string) {
+    const products = this.productService.getMyProductCollection(ownerId);
+    return products
+  }
 }

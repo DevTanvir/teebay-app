@@ -6,6 +6,7 @@ import { CreateProductInput } from '../dtos/create-product-input.dto';
 import { CreateProductOutput } from '../dtos/create-product-output.dto';
 import { GetProductOutput } from '../dtos/get-product-output.dto';
 import { GetProductsInput } from '../dtos/get-products-input.dto';
+import { RentProductInput } from '../dtos/rent-product-input.dto';
 import { UpdateProductInput } from '../dtos/update-product-input.dto';
 
 
@@ -42,8 +43,6 @@ export class ProductService {
     return output;
   }
 
-
-
   async getAllProducts(input: GetProductsInput): Promise<GetProductOutput[]> {
     
     let findManyInput = {
@@ -68,7 +67,7 @@ export class ProductService {
         },
       }
     }
-    
+
     if (input.ownerId) {
       findManyInput = { ...findManyInput,
         where: {
@@ -182,7 +181,6 @@ export class ProductService {
     return updatedProduct;
   }
   
-
   async removeProduct(productId: string, ownerId: string): Promise<Product> {
     const isOwner = await this.prisma.product.findUnique({
       where: {
@@ -209,6 +207,116 @@ export class ProductService {
     });
   
     return deletedProduct;
+  }
+
+  async purchaseProduct(productId: string, buyerId: string): Promise<Product> {
+    const isOwner = await this.prisma.product.findUnique({
+      where: {
+        id: productId
+      },
+    })
+    if (isOwner?.ownerId == buyerId) throw new Error('You can not purchase    your own product');
+
+    const product = await this.prisma.product.update({
+      where: { id: productId },
+      data: {
+        ownerId: buyerId,
+        sellerId: isOwner?.ownerId,
+      },
+      include: {
+        owner: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        seller: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      }
+    });
+
+    return product;
+  }
+
+  async rentProduct(productId: string, input: RentProductInput): Promise<Product> {
+    const isOwner = await this.prisma.product.findUnique({
+      where: {
+        id: productId
+      },
+    })
+
+    if (isOwner?.ownerId == input.borrowerId) throw new Error('You can not rent your own product');
+
+    const product = await this.prisma.product.update({
+      where: { id: productId },
+      data: {
+        borrowerId: input.borrowerId,
+        lenderId: isOwner?.ownerId,
+        rentFromDate: input.rentFromDate,
+        rentToDate: input.rentToDate
+      },
+      include: {
+        borrower: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        lender: {
+          select: {
+            id: true,
+            name: true,
+          },
+        }
+      }
+    });
+
+    return product;
+  }
+
+  async getMyProductCollection(ownerId: string): Promise<Product[]> {
+    const products = await this.prisma.product.findMany({
+      where: {
+        OR: [
+          { ownerId, sellerId: { not: null } },
+          { borrowerId: ownerId },
+          { sellerId: ownerId },
+          { lenderId: ownerId },
+        ],
+  
+      },
+      include: {
+        borrower: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        lender: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        owner: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        seller: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      }
+    });
+    return products;
   }
   
 }
