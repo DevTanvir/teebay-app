@@ -13,12 +13,10 @@ export class UsersService {
     private readonly prismaService: PrismaService
   ) {}
   async create(input: CreateUserInput): Promise<User> {
-    console.log(input);
     input.password = await hash(input.password, 10);
     const user = await this.prismaService.user.create({
       data: input
     });
-    console.log('--', user);
     return user;
   }
 
