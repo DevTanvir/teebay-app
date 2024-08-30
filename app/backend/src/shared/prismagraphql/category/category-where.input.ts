@@ -1,7 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { StringFilter } from '../prisma/string-filter.input';
+
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
+import { StringFilter } from '../prisma/string-filter.input';
 import { ProductCategoryListRelationFilter } from '../product-category/product-category-list-relation-filter.input';
 
 @InputType()

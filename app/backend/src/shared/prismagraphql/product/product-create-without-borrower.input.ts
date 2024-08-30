@@ -1,11 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+
 import { RentDuration } from '../prisma/rent-duration.enum';
 import { ProductCategoryCreateNestedManyWithoutProductInput } from '../product-category/product-category-create-nested-many-without-product.input';
+import { UserCreateNestedOneWithoutLentProductsInput } from '../user/user-create-nested-one-without-lent-products.input';
 import { UserCreateNestedOneWithoutPurchasedProductsInput } from '../user/user-create-nested-one-without-purchased-products.input';
 import { UserCreateNestedOneWithoutSoldProductsInput } from '../user/user-create-nested-one-without-sold-products.input';
-import { UserCreateNestedOneWithoutLentProductsInput } from '../user/user-create-nested-one-without-lent-products.input';
 
 @InputType()
 export class ProductCreateWithoutBorrowerInput {

@@ -1,9 +1,10 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { CategoryCreateWithoutProductsInput } from './category-create-without-products.input';
-import { Type } from 'class-transformer';
-import { CategoryCreateOrConnectWithoutProductsInput } from './category-create-or-connect-without-products.input';
 import { Prisma } from '@prisma/client';
+import { Type } from 'class-transformer';
+
+import { CategoryCreateOrConnectWithoutProductsInput } from './category-create-or-connect-without-products.input';
+import { CategoryCreateWithoutProductsInput } from './category-create-without-products.input';
 import { CategoryWhereUniqueInput } from './category-where-unique.input';
 
 @InputType()

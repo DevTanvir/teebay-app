@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
+
 import { ProductCategory } from '../product-category/product-category.model';
 import { CategoryCount } from './category-count.output';
 
