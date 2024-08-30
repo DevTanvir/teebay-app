@@ -5,6 +5,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CategoryModule } from './categories/category.module';
+import { ProductModule } from './product/product.module';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -17,7 +19,9 @@ import { UsersModule } from './users/users.module';
     ConfigModule.forRoot({
       isGlobal: true, // This makes ConfigModule available globally
     }),
-    UsersModule
+    UsersModule,
+    ProductModule,
+    CategoryModule
   ],
   controllers: [AppController],
   providers: [AppService],
